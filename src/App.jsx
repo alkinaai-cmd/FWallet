@@ -12,6 +12,7 @@ import { SignupPage } from "./features/auth/signup.page";
 import {TransactionsPage} from "./features/Transactions/Transaction.page";
 import {TransactionDetails} from "./features/TransactionDetails/TransactionDetails.Page";
 import "./features/auth/auth.style.css"
+import { SettingsPage } from "./features/settings/settings.page";
 
 export default function App(){
   return (
@@ -19,19 +20,22 @@ export default function App(){
     <AuthProvider>
        <BrowserRouter>
       
-     
+      
         <Routes>
-          <Route element={<AuthLayout/>}>
+           <Route path="/" element={<WelcomePage/>}/>
+            <Route element={<AuthLayout/>}>
             <Route path="/login" element={<LoginPage/>}></Route>
             <Route path="/signup" element={<SignupPage/>}/>
+              
           </Route>
           <Route element={<ProtectedRoute/>}>
          
             <Route element={<AppDataProvider><AppLayout/></AppDataProvider>}>
-              <Route path="/" element={<WelcomePage/>}/>
+            
               <Route path="/dashboard" element={<Dashboard/>}> </Route>
                 <Route path="/notifications" element={<NotificationPage/>}> </Route>
                 <Route path="/transactions" element={<TransactionsPage/>}></Route>
+                 <Route path="/settings" element={<SettingsPage/>}></Route>
                  <Route
             path="/transactions/:id"
             element={<TransactionDetails/>}
