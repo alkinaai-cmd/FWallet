@@ -23,12 +23,13 @@ export default function App(){
     <AuthProvider>
        <BrowserRouter>
       
-     
+      
         <Routes>
-          <Route element={<AuthLayout/>}>
+           <Route path="/" element={<WelcomePage/>}/>
+            <Route element={<AuthLayout/>}>
             <Route path="/login" element={<LoginPage/>}></Route>
             <Route path="/signup" element={<SignupPage/>}/>
-              <Route path="/" element={<WelcomePage/>}/>
+              
           </Route>
           <Route element={<ProtectedRoute/>}>
          
